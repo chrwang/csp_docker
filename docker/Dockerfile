@@ -33,6 +33,10 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         unzip \
         unrar \
         imagemagick \
+        libsm6 \
+        libxext6 \
+        libxrender-dev \
+        libfontconfig1 \
         && \
 
     $GIT_CLONE https://github.com/Kitware/CMake ~/cmake && \
@@ -70,6 +74,17 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         scikit-learn \
         matplotlib \
         Cython \
+        pytz \
+        easydict \
+        joblib \
+        opencv-python \
+        Pillow \
+        nbformat \
+        nbconvert \
+        boto3 \
+        wandb \
+        wand \
+        gradient \
         && \
 
 # ==================================================================
