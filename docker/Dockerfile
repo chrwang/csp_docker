@@ -6,7 +6,7 @@
 # keras         latest (pip)
 # ==================================================================
 
-FROM nvidia/cuda:9.2-cudnn7-devel-ubuntu18.04
+FROM tensorflow/tensorflow:1.13.2-gpu-py3
 ENV LANG C.UTF-8
 RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     PIP_INSTALL="python -m pip --no-cache-dir install --upgrade" && \
@@ -91,9 +91,10 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
 # tensorflow
 # ------------------------------------------------------------------
 
-    $PIP_INSTALL \
-        tf-nightly-gpu-2.0-preview \
-        && \
+#    $PIP_INSTALL \
+#        #tf-nightly-gpu-2.0-preview \
+#        tensorflow-gpu
+#        && \
 
 # ==================================================================
 # keras
