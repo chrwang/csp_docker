@@ -1,11 +1,11 @@
 # ==================================================================
 # module list
 # ------------------------------------------------------------------
-# python        3.6    (apt)
 # tensorflow    latest (pip)
 # keras         latest (pip)
 # ==================================================================
 
+# Grab the tensorflow + gpu + py3 base image
 FROM tensorflow/tensorflow:1.13.2-gpu-py3
 ENV LANG C.UTF-8
 RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
@@ -22,6 +22,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
 # tools
 # ------------------------------------------------------------------
 
+# Install some debian dependencies
     DEBIAN_FRONTEND=noninteractive $APT_INSTALL \
         build-essential \
         apt-utils \
@@ -48,6 +49,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
 # python
 # ------------------------------------------------------------------
 
+# Install some pip dependencies
     DEBIAN_FRONTEND=noninteractive $APT_INSTALL \
         software-properties-common \
         && \
@@ -77,6 +79,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         pytz \
         easydict \
         joblib \
+        jupyter \
         opencv-python \
         Pillow \
         nbformat \
@@ -86,15 +89,6 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         wand \
         gradient \
         && \
-
-# ==================================================================
-# tensorflow
-# ------------------------------------------------------------------
-
-#    $PIP_INSTALL \
-#        #tf-nightly-gpu-2.0-preview \
-#        tensorflow-gpu
-#        && \
 
 # ==================================================================
 # keras
@@ -114,4 +108,5 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* ~/*
 
-# EXPOSE 6006
+# Expose port 8000 for notebooks
+EXPOSE 8000
