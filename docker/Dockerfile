@@ -6,7 +6,7 @@
 # ==================================================================
 
 # Grab the tensorflow + gpu + py3 base image
-FROM tensorflow/tensorflow:1.13.2-gpu-py3
+FROM tensorflow/tensorflow:1.13.2-gpu-py3-jupyter
 ENV LANG C.UTF-8
 RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     PIP_INSTALL="python -m pip --no-cache-dir install --upgrade" && \
@@ -77,7 +77,6 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         pytz \
         easydict \
         joblib \
-        jupyter \
         opencv-python \
         Pillow \
         nbformat \
