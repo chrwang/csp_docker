@@ -63,8 +63,6 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     wget -O ~/get-pip.py \
         https://bootstrap.pypa.io/get-pip.py && \
     python3.6 ~/get-pip.py && \
-    ln -s /usr/bin/python3.6 /usr/local/bin/python3 && \
-    ln -s /usr/bin/python3.6 /usr/local/bin/python && \
     $PIP_INSTALL \
         setuptools \
         && \
